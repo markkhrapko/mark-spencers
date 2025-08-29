@@ -170,6 +170,12 @@ function createCarousel(postId, images) {
             video.style.height = '100%';
             video.style.objectFit = 'contain';
             
+            // Add click handler for video expansion
+            video.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleVideoExpansion(slide, video);
+            });
+            
             slide.appendChild(video);
         } else {
             const img = document.createElement('img');
@@ -507,6 +513,59 @@ function initializeCarousel(container, images) {
 // Initialize carousels for newly loaded posts
 function initializeNewCarousels() {
     // Carousels are initialized when created in createCarousel function
+}
+
+// Toggle video expansion
+function toggleVideoExpansion(slide, video) {
+    const overlay = document.querySelector('.video-overlay');
+    const isExpanded = slide.classList.contains('video-expanded');
+    
+    if (isExpanded) {
+        // Collapse video
+        slide.classList.remove('video-expanded');
+        overlay.classList.remove('active');
+        video.muted = true; // Re-mute when closing
+        
+        // Remove click handler from overlay
+        overlay.onclick = null;
+    } else {
+        // Expand video
+        slide.classList.add('video-expanded');
+        overlay.classList.add('active');
+        video.muted = false; // Unmute when expanded
+        
+        // Make sure video is visible in current carousel position
+        const carousel = slide.closest('.carousel-container');
+        if (carousel && carousel.goToSlide) {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = Array.from(track.querySelectorAll('.slide'));
+            const slideIndex = slides.indexOf(slide);
+            
+            // Navigate to the video slide if it's not currently active
+            const activeSlide = carousel.querySelector('.slide.active');
+            if (activeSlide !== slide && slideIndex >= 0) {
+                // Account for cloned slides
+                const realSlides = Array.from(track.querySelectorAll('.slide:not(:first-child):not(:last-child)'));
+                const realIndex = realSlides.indexOf(slide);
+                if (realIndex >= 0 && carousel.goToSlide) {
+                    carousel.goToSlide(realIndex);
+                }
+            }
+        }
+        
+        // Click overlay to close
+        overlay.onclick = () => {
+            toggleVideoExpansion(slide, video);
+        };
+        
+        // Stop video when closing with escape key
+        document.addEventListener('keydown', function escapeHandler(e) {
+            if (e.key === 'Escape' && slide.classList.contains('video-expanded')) {
+                toggleVideoExpansion(slide, video);
+                document.removeEventListener('keydown', escapeHandler);
+            }
+        });
+    }
 }
 
 // Set up infinite scroll
