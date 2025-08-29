@@ -274,30 +274,35 @@
       ]
     },
     {
-      "id": "sputtering",
-      "title": "dying engine",
-      "content": [
-        "this."
-      ],
-      "images": [
-        {
-          "url": "images/sputtering-lithography/IMG_7622.jpg",
-          "caption": ""
-        },
-        {
-          "url": "images/sputtering-lithography/IMG_7625.jpg",
-          "caption": ""
-        },
-        {
-          "url": "images/sputtering-lithography/IMG_7757.jpeg",
-          "caption": ""
-        },
-        {
-          "url": "images/sputtering-lithography/tracesarray.png",
-          "caption": ""
-        }
-      ]
-    },
+        "id": "sputtering",
+        "title": "dying engine",
+        "content": [
+          "this."
+        ],
+        "images": [
+          {
+            "url": "images/sputtering-lithography/IMG_7622.jpg",
+            "caption": ""
+          },
+          {
+            "url": "images/sputtering-lithography/IMG_7625.jpg",
+            "caption": ""
+          },
+          {
+            "url": "images/sputtering-lithography/IMG_7757.jpeg",
+            "caption": ""
+          },
+          {
+            "url": "images/sputtering-lithography/tracesarray.png",
+            "caption": ""
+          },
+          {
+            "url": "images/sputtering-lithography/IMG_7615.MP4.mov",
+            "caption": "",
+            "type": "video"
+          }
+        ]
+      },
     {
       "id": "ultrasonic-mapping",
       "title": "Something new",

@@ -156,12 +156,30 @@ function createCarousel(postId, images) {
         const slide = document.createElement('div');
         slide.className = 'slide';
         
-        const img = document.createElement('img');
-        img.src = image.url;
-        img.alt = image.caption || '';
-        img.loading = index === 0 ? 'eager' : 'lazy';
+        // Check if this is a video or image
+        const isVideo = image.type === 'video' || image.url.match(/\.(mp4|mov|webm|ogg)$/i);
         
-        slide.appendChild(img);
+        if (isVideo) {
+            const video = document.createElement('video');
+            video.src = image.url;
+            video.controls = true;
+            video.muted = true;
+            video.playsInline = true;
+            video.loading = 'lazy';
+            video.style.width = '100%';
+            video.style.height = '100%';
+            video.style.objectFit = 'contain';
+            
+            slide.appendChild(video);
+        } else {
+            const img = document.createElement('img');
+            img.src = image.url;
+            img.alt = image.caption || '';
+            img.loading = index === 0 ? 'eager' : 'lazy';
+            
+            slide.appendChild(img);
+        }
+        
         track.appendChild(slide);
     });
     
@@ -390,6 +408,13 @@ function initializeCarousel(container, images) {
     allSlides.forEach((slide, index) => {
         slide.addEventListener('click', (e) => {
             e.stopPropagation();
+            
+            // Don't navigate if clicking on a video
+            if (e.target.tagName === 'VIDEO' || slide.querySelector('video')) {
+                activateCarousel();
+                return;
+            }
+            
             activateCarousel();
             let targetIndex;
             if (index === 0) {
