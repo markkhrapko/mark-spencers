@@ -389,6 +389,9 @@ function initializeCarousel(container, images) {
     // Initialize first slide
     goToSlide(0);
     
+    // Expose goToSlide function on container for external access
+    container.goToSlide = goToSlide;
+    
     // Activate carousel on interaction
     container.addEventListener('mouseenter', () => {
         activateCarousel();
@@ -517,55 +520,56 @@ function initializeNewCarousels() {
 
 // Toggle video expansion
 function toggleVideoExpansion(slide, video) {
-    const overlay = document.querySelector('.video-overlay');
-    const isExpanded = slide.classList.contains('video-expanded');
+    const carousel = slide.closest('.carousel-container');
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.querySelectorAll('.slide'));
     
-    if (isExpanded) {
-        // Collapse video
-        slide.classList.remove('video-expanded');
-        overlay.classList.remove('active');
-        video.muted = true; // Re-mute when closing
+    // First, navigate to the video slide if it's not active
+    const slideIndex = slides.indexOf(slide);
+    const activeSlide = carousel.querySelector('.slide.active');
+    
+    if (activeSlide !== slide) {
+        // Find the actual index (accounting for clones)
+        const realSlides = slides.filter((s, i) => i > 0 && i < slides.length - 1);
+        const realIndex = realSlides.indexOf(slide);
         
-        // Remove click handler from overlay
-        overlay.onclick = null;
-    } else {
-        // Expand video
-        slide.classList.add('video-expanded');
-        overlay.classList.add('active');
-        video.muted = false; // Unmute when expanded
-        
-        // Make sure video is visible in current carousel position
-        const carousel = slide.closest('.carousel-container');
-        if (carousel && carousel.goToSlide) {
-            const track = carousel.querySelector('.carousel-track');
-            const slides = Array.from(track.querySelectorAll('.slide'));
-            const slideIndex = slides.indexOf(slide);
-            
-            // Navigate to the video slide if it's not currently active
-            const activeSlide = carousel.querySelector('.slide.active');
-            if (activeSlide !== slide && slideIndex >= 0) {
-                // Account for cloned slides
-                const realSlides = Array.from(track.querySelectorAll('.slide:not(:first-child):not(:last-child)'));
-                const realIndex = realSlides.indexOf(slide);
-                if (realIndex >= 0 && carousel.goToSlide) {
-                    carousel.goToSlide(realIndex);
-                }
+        if (realIndex >= 0) {
+            // Use the carousel's navigation to go to this slide
+            const container = slide.closest('.carousel-container');
+            if (container && container.goToSlide) {
+                container.goToSlide(realIndex);
             }
         }
-        
-        // Click overlay to close
-        overlay.onclick = () => {
-            toggleVideoExpansion(slide, video);
-        };
-        
-        // Stop video when closing with escape key
-        document.addEventListener('keydown', function escapeHandler(e) {
-            if (e.key === 'Escape' && slide.classList.contains('video-expanded')) {
-                toggleVideoExpansion(slide, video);
-                document.removeEventListener('keydown', escapeHandler);
+    }
+    
+    // Toggle playing state
+    if (slide.classList.contains('video-playing')) {
+        // Stop and shrink
+        slide.classList.remove('video-playing');
+        video.pause();
+        video.muted = true;
+    } else {
+        // Remove playing class from any other videos
+        document.querySelectorAll('.slide.video-playing').forEach(s => {
+            s.classList.remove('video-playing');
+            const v = s.querySelector('video');
+            if (v) {
+                v.pause();
+                v.muted = true;
             }
         });
+        
+        // Enlarge and play
+        slide.classList.add('video-playing');
+        video.muted = false;
+        video.play();
     }
+    
+    // Stop video when it ends
+    video.onended = () => {
+        slide.classList.remove('video-playing');
+        video.muted = true;
+    };
 }
 
 // Set up infinite scroll
