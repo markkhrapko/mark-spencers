@@ -240,10 +240,16 @@
         }
         
         /* Slightly enlarged video when playing */
+        .slide.video-playing {
+            z-index: 10;
+        }
+        
         .slide.video-playing video {
             transform: scale(1.2);
             max-height: 500px;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 10;
         }
         
 

@@ -2,10 +2,8 @@
   "posts": [
     {
       "id": "microneedles",
-      "title": "Microneedles",
-      "content": [
-        "whats worse than one needle?"
-      ],
+      "title": "whats worse than one needle?",
+      "content": [],
       "images": [
         {
           "url": "images/Microneedles/IMG_5866.jpg",
@@ -39,10 +37,8 @@
     },
     {
         "id": "sputtering",
-        "title": "dying engine",
-        "content": [
-          "this."
-        ],
+        "title": "this.",
+        "content": [],
         "images": [
           {
             "url": "images/sputtering-lithography/IMG_7622.jpg",
@@ -69,10 +65,8 @@
       },
     {
       "id": "pva",
-      "title": "slime!",
-      "content": [
-        "It's a solid, it's a liquid, it's a viscoelastic polymer made of polypeptide chains and you can eat it!"
-      ],
+      "title": "It's a solid, it's a liquid, it's a viscoelastic polymer made of polypeptide chains and you can eat it!",
+      "content": [],
       "images": [
         {
           "url": "images/pva/IMG_3744.jpg",
@@ -102,10 +96,8 @@
     },
     {
       "id": "ultrasonic-mapping",
-      "title": "Something new",
-      "content": [
-        "The best kind of sound"
-      ],
+      "title": "The best kind of sound",
+      "content": [],
       "images": [
         {
           "url": "images/Ultrasonic Mapper/IMG_6928.JPG.jpg",
@@ -143,10 +135,8 @@
     },
     {
       "id": "eeg",
-      "title": "Reading is good for you",
-      "content": [
-        "Terrible at reading the brain, looks cool though"
-      ],
+      "title": "Terrible at reading the brain, looks cool though",
+      "content": [],
       "images": [
         {
           "url": "images/eeg/IMG_1935.jpg",
@@ -168,10 +158,8 @@
     },
     {
       "id": "flextrodes",
-      "title": "Flextrodes",
-      "content": [
-        "its in the name."
-      ],
+      "title": "its in the name.",
+      "content": [],
       "images": [
         {
           "url": "images/flextrodes/IMG_0980.jpg",
@@ -205,10 +193,8 @@
     },
     {
       "id": "circuit-smaller",
-      "title": "Tinification",
-      "content": [
-        "bigger is not always better turns out"
-      ],
+      "title": "bigger is not always better turns out",
+      "content": [],
       "images": [
         {
           "url": "images/circuit smaller/IMG_0005.jpg",
@@ -230,10 +216,8 @@
     },
     {
       "id": "mona-lisa",
-      "title": "Mona Lisa",
-      "content": [
-        "MonaLisa becomes Mona+Lisa"
-      ],
+      "title": "MonaLisa becomes Mona+Lisa",
+      "content": [],
       "images": [
         {
           "url": "images/mona lisa/IMG_8492 2.jpeg",
@@ -263,10 +247,8 @@
     },
     {
       "id": "headphones1",
-      "title": "Headphones_v1",
-      "content": [
-        "engineering learned a new concept... comfort?"
-      ],
+      "title": "engineering learned a new concept... comfort?",
+      "content": [],
       "images": [
         {
           "url": "images/headphones1/IMG_0238.jpg",
@@ -288,10 +270,8 @@
     },
     {
       "id": "kelvin-lattice",
-      "title": "Formlabs fans",
-      "content": [
-        "squishy!"
-      ],
+      "title": "squishy!",
+      "content": [],
       "images": [
         {
           "url": "images/kelvin_lattice/IMG_0279.jpg",
@@ -317,10 +297,8 @@
     },
     {
       "id": "ghosts",
-      "title": "Responsible 3d printing",
-      "content": [
-        "boo"
-      ],
+      "title": "boo",
+      "content": [],
       "images": [
         {
           "url": "images/ghosts/IMG_7530.jpg",
