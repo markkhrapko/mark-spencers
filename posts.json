@@ -36,34 +36,6 @@
       ]
     },
     {
-        "id": "sputtering",
-        "title": "this.",
-        "content": [],
-        "images": [
-          {
-            "url": "images/sputtering-lithography/IMG_7622.jpg",
-            "caption": ""
-          },
-          {
-            "url": "images/sputtering-lithography/IMG_7625.jpg",
-            "caption": ""
-          },
-          {
-            "url": "images/sputtering-lithography/IMG_7757.jpeg",
-            "caption": ""
-          },
-          {
-            "url": "images/sputtering-lithography/tracesarray.png",
-            "caption": ""
-          },
-          {
-            "url": "images/sputtering-lithography/IMG_7615.MP4.mov",
-            "caption": "",
-            "type": "video"
-          }
-        ]
-      },
-    {
       "id": "pva",
       "title": "It's a solid, it's a liquid, it's a viscoelastic polymer made of polypeptide chains and you can eat it!",
       "content": [],
@@ -134,29 +106,6 @@
       ]
     },
     {
-      "id": "eeg",
-      "title": "Exciting Event Generation",
-      "content": [],
-      "images": [
-        {
-          "url": "images/eeg/IMG_1935.jpg",
-          "caption": ""
-        },
-        {
-          "url": "images/eeg/IMG_2214.jpeg",
-          "caption": ""
-        },
-        {
-          "url": "images/eeg/IMG_4901.jpg",
-          "caption": ""
-        },
-        {
-          "url": "images/eeg/IMG_8554.jpg",
-          "caption": ""
-        }
-      ]
-    },
-    {
       "id": "flextrodes",
       "title": "Hexagons are in fact the bestagons",
       "content": [],
@@ -191,6 +140,34 @@
         }
       ]
     },
+    {
+        "id": "sputtering",
+        "title": "this.",
+        "content": [],
+        "images": [
+          {
+            "url": "images/sputtering-lithography/IMG_7622.jpg",
+            "caption": ""
+          },
+          {
+            "url": "images/sputtering-lithography/IMG_7625.jpg",
+            "caption": ""
+          },
+          {
+            "url": "images/sputtering-lithography/IMG_7757.jpeg",
+            "caption": ""
+          },
+          {
+            "url": "images/sputtering-lithography/tracesarray.png",
+            "caption": ""
+          },
+          {
+            "url": "images/sputtering-lithography/IMG_7615.MP4.mov",
+            "caption": "",
+            "type": "video"
+          }
+        ]
+      },
     {
       "id": "circuit-smaller",
       "title": "What if circuit but smaller",
@@ -264,6 +241,29 @@
         },
         {
           "url": "images/headphones1/IMG_8114.jpg",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "eeg",
+      "title": "Exciting Event Generation",
+      "content": [],
+      "images": [
+        {
+          "url": "images/eeg/IMG_1935.jpg",
+          "caption": ""
+        },
+        {
+          "url": "images/eeg/IMG_2214.jpeg",
+          "caption": ""
+        },
+        {
+          "url": "images/eeg/IMG_4901.jpg",
+          "caption": ""
+        },
+        {
+          "url": "images/eeg/IMG_8554.jpg",
           "caption": ""
         }
       ]
